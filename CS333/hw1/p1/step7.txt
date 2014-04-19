@@ -1,0 +1,32 @@
+Script started on Tue Apr  1 20:35:53 2014
+[?1034h[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ asm Hello.s
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ lddd Hello.o -o Hello
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ blitz -g Hello
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+Beginning execution...
+Hello, world!
+
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+000080: A1FFFFB8       jmp     0xFFFFB8		! targetAddr = main
+
+Entering machine-level debugger...
+======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1705
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1705
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ ∂[Kexit
+
+Script done on Tue Apr  1 20:37:52 2014

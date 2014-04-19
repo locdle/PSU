@@ -1,0 +1,646 @@
+Script started on Tue Apr  1 20:34:47 2014
+[?1034h[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ ssh locle@stargate.cat.pdx.edu[Kdsfsdf
+bash: dsfsdf: command not found
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ dsfsdfssh locle@stargate.cat.pdx.edu[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kssh locle@stargate.cat.pdx.eduls[Kssh locle@stargate.cat.pdx.edu[Kdsfsdf[Kdsfsdf[Kssh locle@stargate.cat.pdx.eduls[K[K[Kscript step7.txt
+Script started, output file is step7.txt
+[?1034h[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ asm Hello.s
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ lddd Hello.o -o Hello
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ blitz -g Hello
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+Beginning execution...
+Hello, world!
+
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+000080: A1FFFFB8       jmp     0xFFFFB8		! targetAddr = main
+
+Entering machine-level debugger...
+======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1705
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1705
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ ∂[Kexit
+
+Script done, output file is step7.txt
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ ls
+BlitzOnWindows.doc   Echo                 Hello.s              HelloWorld.s         System.o             [34mproj1_files[39;49m[0m
+BlitzOnWindows.html  Echo.o               HelloWorld           Runtime.o            makefile.txt         step7.txt
+BlitzOnWindows.pdf   Echo.s               HelloWorld.c         Runtime.s            proj1.doc            typescript
+[34mBlitzOnWindows_files[39;49m[0m Hello                HelloWorld.h         System.c             proj1.html
+DISK.txt             Hello.o              HelloWorld.o         System.h             proj1.pdf
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ less step7.txt 
+"step7.txt" may be a binary file.  See it anyway? 
+[?1049h[?1h=Script started on Tue Apr  1 20:35:53 2014
+[7mESC[27m[?1034h[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ asm H[7m^G[27mello.s
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ lddd H[7m^G[27mello.o -o H[7m^G[27mello
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ blitz -g Hello
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+Beginning execution...
+Hello, world!
+[7m^M[27m
+[7m^M[27m****  A 'debug' instruction was encountered  *****
+[7m^M[27mDone!  The next instruction to execute will be:
+000080: A1FFFFB8       jmp     0xFFFFB8         ! targetAddr = main
+
+[7m^M[27mEntering machine-level debugger...
+[7m^M[27m======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1705
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1705
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ [7mESC[27m[Kexit
+
+Script done on Tue Apr  1 20:37:52 2014
+[7mstep7.txt (END) [27m[K[K[K[7m(END) [27m[K[K[K[7m(END) [27m[K[K [KESCESC[KOO[KBB[K[K[7m(END) [27m[K[K [KESCESC[KOO[KDD[H[2J[HScript started on Tue Apr  1 20:35:53 2014
+[7mESC[27m[?1034h[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ asm H[7m^G[27mello.s
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ lddd H[7m^G[27mello.o -o H[7m^G[27mello
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ blitz -g Hello
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+Beginning execution...
+Hello, world!
+[7m^M[27m
+[7m^M[27m****  A 'debug' instruction was encountered  *****
+[7m^M[27mDone!  The next instruction to execute will be:
+000080: A1FFFFB8       jmp     0xFFFFB8         ! targetAddr = main
+
+[7m^M[27mEntering machine-level debugger...
+[7m^M[27m======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1705
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1705
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ [7mESC[27m[Kexit
+
+Script done on Tue Apr  1 20:37:52 2014
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[7m(END) [27m[K[K [KESCESC[KOO[KDD[H[2J[HScript started on Tue Apr  1 20:35:53 2014
+[7mESC[27m[?1034h[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ asm H[7m^G[27mello.s
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ lddd H[7m^G[27mello.o -o H[7m^G[27mello
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ blitz -g Hello
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+Beginning execution...
+Hello, world!
+[7m^M[27m
+[7m^M[27m****  A 'debug' instruction was encountered  *****
+[7m^M[27mDone!  The next instruction to execute will be:
+000080: A1FFFFB8       jmp     0xFFFFB8         ! targetAddr = main
+
+[7m^M[27mEntering machine-level debugger...
+[7m^M[27m======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1705
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1705
+[7mESC[27m[36mlocle[7mESC[27m[m@[7mESC[27m[32mLOCs-MacBook-Pro:[7mESC[27m[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[7mESC[27m[m$ [7mESC[27m[Kexit
+
+Script done on Tue Apr  1 20:37:52 2014
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[7m(END) [27m[K[K [KESCESC[KOO[KAA[K[K[7m(END) [27m[K[K[K[7m(END) [27m[K[K [K::[Kqq[K[?1l>[?1049l[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ ls[K[Kasm Hello.s
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ lddd Hello.o -o Hello
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ blitz -g Hello
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+Beginning execution...
+Hello, world!
+
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+000080: A1FFFFB8       jmp     0xFFFFB8		! targetAddr = main
+
+Entering machine-level debugger...
+======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1705
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1705
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ asm Echo.s
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ lddd Echo.o -o Echo
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ blitz Echo
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> g
+Beginning execution...
+abcd
+abcd
+abc   this is a test
+this is a test
+q
+q
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+                   cont:
+0000A4: A1FFFFAC       jmp     0xFFFFAC		! targetAddr = loop
+> go
+Beginning execution...
+
+abcd
+abcd
+this is a test
+this is a test
+q
+q
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+                   cont:
+0000A4: A1FFFFAC       jmp     0xFFFFAC		! targetAddr = loop
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1193629927
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1193629927
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ kpl -unsafe System
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ asm System.s
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ kpl HelloWorld
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ asm HelloWorld.s
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ asm Runtime.s
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ lddd Runtime.o System.o HelloWorld.o -o HelloWorld
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ kpl System
+System.h:30: *****  ERROR at PTR: Using 'ptr to void' is unsafe; you must compile with the 'unsafe' option if you wish to do this
+System.h:31: *****  ERROR at PTR: Using 'ptr to void' is unsafe; you must compile with the 'unsafe' option if you wish to do this
+System.h:32: *****  ERROR at PTR: Using 'ptr to void' is unsafe; you must compile with the 'unsafe' option if you wish to do this
+System.c:64: *****  ERROR at "+": Adding ptrs to ints is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:92: *****  ERROR at PTR: Using 'ptr to void' is unsafe; you must compile with the 'unsafe' option if you wish to do this
+System.c:100: *****  ERROR at AS_PTR_TO: Using 'asPtrTo' is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:113: *****  ERROR at "&": Taking the address of field within a record or object is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:113: *****  ERROR at "&": The expression on the righthand side of this assignment does not have the correct type
+System.c:113:              The type of the expression is: ptr to ptr to DISPATCH_TABLE
+System.c:92:              The expected type is: ptr to ptr to void
+System.c:120: *****  ERROR at "+": Adding ptrs to ints is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:149: *****  ERROR at AS_PTR_TO: Using 'asPtrTo' is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:207: *****  ERROR at "&": Taking the address of an element within an array is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:208: *****  ERROR at AS_PTR_TO: Using 'asPtrTo' is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:208: *****  ERROR at AS_PTR_TO: Using 'asPtrTo' is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:212: *****  ERROR at "+": Adding ptrs to ints is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:246: *****  ERROR at AS_PTR_TO: Using 'asPtrTo' is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:253: *****  ERROR at AS_PTR_TO: Using 'asPtrTo' is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+System.c:275: *****  ERROR at AS_PTR_TO: Using 'asPtrTo' is an unsafe operation; you must compile with the 'unsafe' option if you wish to do this
+
+**********  17 errors detected!  **********
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ blitz -g HelloWorld
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+Beginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Hello, world...
+
+====================  KPL PROGRAM TERMINATION  ====================
+
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+000D98: C0100000       sethi   0x0000,r1	! 0x00000DA8 = 3496 (noGoMessage)
+
+Entering machine-level debugger...
+======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> g
+Beginning execution...
+
+The KPL program has terminated; you may not continue!
+
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+000D98: C0100000       sethi   0x0000,r1	! 0x00000DA8 = 3496 (noGoMessage)
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1296
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1296
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ blitz -g HelloWorld
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+Beginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Hello, world...
+
+====================  KPL PROGRAM TERMINATION  ====================
+
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+000D98: C0100000       sethi   0x0000,r1	! 0x00000DA8 = 3496 (noGoMessage)
+
+Entering machine-level debugger...
+======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> h
+===========================================================================
+This program accepts commands typed into the terminal.  Each command
+should be typed without any arguments; the commands will prompt for
+arguments when needed.  Case is not significant.  Some abbreviations
+are allowed, as shown.  Typing control-C will halt execution.
+
+The available commands are:
+
+  quit    - Terminate this program
+  q         
+  help    - Produce this display
+  h         
+  info    - Display the current state of the machine
+  i         
+  dumpMem - Display the contents of memory
+  dm        
+  setmem  - Used to alter memory contents
+  fmem    - Display floating point values from memory
+  go      - Begin or resume BLITZ instruction execution
+  g         
+  step    - Single step; execute one machine-level instruction
+  s         
+  t       - Single step; execute one KPL statement
+  u       - Execute continuously until next KPL call, send, or return statement
+  stepn   - Execute N machine-level instructions
+  r       - Display all the integer registers
+  r1      - Change the value of register r1
+   ...       
+  r15     - Change the value of register r15
+  float   - Display all the floating-point registers
+  f         
+  f0      - Change the value of floating-point register f0
+   ...       
+  f15     - Change the value of floating-point register f15
+  dis     - Disassemble several instructions
+  d       - Disassemble several instructions from the current location
+  hex     - Convert a user-entered hex number into decimal and ascii
+  dec     - Convert a user-entered decimal number into hex and ascii
+  ascii   - Convert a user-entered ascii char into hex and decimal
+  setI    - Set the I bit in the Status Register
+  setS    - Set the S bit in the Status Register
+  setP    - Set the P bit in the Status Register
+  setZ    - Set the Z bit in the Status Register
+  setV    - Set the V bit in the Status Register
+  setN    - Set the N bit in the Status Register
+  clearI  - Clear the I bit in the Status Register
+  clearS  - Clear the S bit in the Status Register
+  clearP  - Clear the P bit in the Status Register
+  clearZ  - Clear the Z bit in the Status Register
+  clearV  - Clear the V bit in the Status Register
+  clearN  - Clear the N bit in the Status Register
+  setPC   - Set the Program Counter (PC)
+  setPTBR - Set the Page Table Base Register (PTBR)
+  setPTLR - Set the Page Table Length Register (PTLR)
+  pt      - Display the Page Table
+  trans   - Perform page table translation on a single address
+  cancel  - Cancel all pending interrupts
+  labels  - Display the label table
+  find    - Find a label by name
+  find2   - Find a label by value
+  add     - Add a new label, inserting it into the indexes
+  reset   - Reset the machine state and re-read the a.out file
+  io      - Display the state of the I/O devices
+  read    - Read a word from memory-mapped I/O region
+  write   - Write a word to memory-mapped I/O region
+  raw     - Switch serial input to raw mode
+  cooked  - Switch serial input to cooked mode
+  input   - Enter input characters for future serial I/O input
+  format  - Create and format a BLITZ disk file
+  sim     - Display the current simulation constants
+  stack   - Display the KPL calling stack
+  st        
+  frame   - Display the current activation frame
+  fr        
+  up      - Move up in the activation frame stack
+  down    - Move down in the activation frame stack
+
+===========================================================================
+> g
+Beginning execution...
+
+The KPL program has terminated; you may not continue!
+
+****  A 'debug' instruction was encountered  *****
+Done!  The next instruction to execute will be:
+000D98: C0100000       sethi   0x0000,r1	! 0x00000DA8 = 3496 (noGoMessage)
+> s
+Done!  The next instruction to execute will be:
+000D9C: C1100DA8       setlo   0x0DA8,r1
+> t
+
+The KPL program has terminated; you may not continue!
+
+****  A 'debug' instruction was encountered  *****
+About to execute RETURN statement                 ***Invalid FP***
+
+> reset
+Resetting all CPU registers and re-reading file "HelloWorld"...
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+> i
+============================
+Memory size = 0x01000000     ( decimal: 16777216    )
+Page size   = 0x00002000     ( decimal: 8192        )
+.text Segment
+    addr    = 0x00000000     ( decimal: 0           )
+    size    = 0x00004000     ( decimal: 16384       )
+.data Segment
+    addr    = 0x00004000     ( decimal: 16384       )
+    size    = 0x00006000     ( decimal: 24576       )
+.bss Segment
+    addr    = 0x0000A000     ( decimal: 40960       )
+    size    = 0x00000000     ( decimal: 0           )
+=====  USER REGISTERS  =====
+  r0  = 0x00000000     ( decimal: 0 )
+  r1  = 0x00000000     ( decimal: 0 )
+  r2  = 0x00000000     ( decimal: 0 )
+  r3  = 0x00000000     ( decimal: 0 )
+  r4  = 0x00000000     ( decimal: 0 )
+  r5  = 0x00000000     ( decimal: 0 )
+  r6  = 0x00000000     ( decimal: 0 )
+  r7  = 0x00000000     ( decimal: 0 )
+  r8  = 0x00000000     ( decimal: 0 )
+  r9  = 0x00000000     ( decimal: 0 )
+  r10 = 0x00000000     ( decimal: 0 )
+  r11 = 0x00000000     ( decimal: 0 )
+  r12 = 0x00000000     ( decimal: 0 )
+  r13 = 0x00000000     ( decimal: 0 )
+  r14 = 0x00000000     ( decimal: 0 )
+  r15 = 0x00000000     ( decimal: 0 )
+=====  SYSTEM REGISTERS  =====
+  r0  = 0x00000000     ( decimal: 0 )
+  r1  = 0x00000000     ( decimal: 0 )
+  r2  = 0x00000000     ( decimal: 0 )
+  r3  = 0x00000000     ( decimal: 0 )
+  r4  = 0x00000000     ( decimal: 0 )
+  r5  = 0x00000000     ( decimal: 0 )
+  r6  = 0x00000000     ( decimal: 0 )
+  r7  = 0x00000000     ( decimal: 0 )
+  r8  = 0x00000000     ( decimal: 0 )
+  r9  = 0x00000000     ( decimal: 0 )
+  r10 = 0x00000000     ( decimal: 0 )
+  r11 = 0x00000000     ( decimal: 0 )
+  r12 = 0x00000000     ( decimal: 0 )
+  r13 = 0x00000000     ( decimal: 0 )
+  r14 = 0x00000000     ( decimal: 0 )
+  r15 = 0x00000000     ( decimal: 0 )
+=====  FLOATING-POINT REGISTERS  =====
+  f0  = 0x00000000 00000000   ( value = 0 )
+  f1  = 0x00000000 00000000   ( value = 0 )
+  f2  = 0x00000000 00000000   ( value = 0 )
+  f3  = 0x00000000 00000000   ( value = 0 )
+  f4  = 0x00000000 00000000   ( value = 0 )
+  f5  = 0x00000000 00000000   ( value = 0 )
+  f6  = 0x00000000 00000000   ( value = 0 )
+  f7  = 0x00000000 00000000   ( value = 0 )
+  f8  = 0x00000000 00000000   ( value = 0 )
+  f9  = 0x00000000 00000000   ( value = 0 )
+  f10 = 0x00000000 00000000   ( value = 0 )
+  f11 = 0x00000000 00000000   ( value = 0 )
+  f12 = 0x00000000 00000000   ( value = 0 )
+  f13 = 0x00000000 00000000   ( value = 0 )
+  f14 = 0x00000000 00000000   ( value = 0 )
+  f15 = 0x00000000 00000000   ( value = 0 )
+======================================
+  PC   = 0x00000000     ( decimal: 0 )
+  PTBR = 0x00000000     ( decimal: 0 )
+  PTLR = 0x00000000     ( decimal: 0 )
+                        ---- ----  ---- ----  ---- ----  --IS PZVN
+  SR   = 0x00000010  =  0000 0000  0000 0000  0000 0000  0001 0000
+           I = 0   Interrupts Disabled
+           S = 1   System Mode
+           P = 0   Paging Disabled
+           Z = 0   Not Zero
+           V = 0   No Overflow
+           N = 0   Not Negative
+==============================
+  Pending Interrupts                = 0x00000002
+    TIMER_INTERRUPT
+  System Trap Number                = 0x00000000
+  Page Invalid Offending Address    = 0x00000000
+  Page Readonly Offending Address   = 0x00000000
+  Time of next timer event          = 5005
+  Time of next disk event           = 2147483647
+  Time of next serial in event      = 0
+  Time of next serial out event     = 2147483647
+    Current Time                    = 0
+    Time of next event              = 0
+    Time Spent Sleeping             = 0
+      Instructions Executed         = 0
+  Number of Disk Reads              = 0
+  Number of Disk Writes             = 0
+==============================
+The next instruction to execute will be:
+                   PowerOnReset:
+                   _entry:
+000000: A1000CD8       jmp     0x000CD8		! targetAddr = RuntimeStartup
+About to execute ***INVLALID HIGH-LEVEL STATEMENT CODE IN REGISTER r10***
+> st
+   Function/Method            Frame Addr   Execution at...
+   ========================   ==========   =====================
+Bottom of activation frame stack!
+> up
+Already at top of stack!
+=====  Frame number 0 (where StackTop = 0)  =====
+Bottom of activation frame stack!
+Resetting current frame to top of stack!
+> down
+=====  Frame number 1 (where StackTop = 0)  =====
+Invalid activation frame stack!  The frame pointer is 0x00000000.
+Resetting current frame to top of stack!
+> t
+====================  KPL PROGRAM STARTING  ====================
+About to execute FUNCTION ENTRY                    in KPLMemoryInitialize (System.c, line 147)  time = 453
+> t
+About to execute ASSIGN statement                  in KPLMemoryInitialize (System.c, line 150)  time = 458
+> t
+About to execute RETURN statement                  in KPLMemoryInitialize (System.c, line 150)  time = 466
+> t
+About to execute FUNCTION ENTRY                    in main (HelloWorld.c, line 5)  time = 486
+> t
+About to execute FUNCTION CALL (external function) in main (HelloWorld.c, line 6)  time = 493
+> t
+Hello, world...
+About to execute RETURN statement                  in main (HelloWorld.c, line 6)  time = 501
+> t
+
+====================  KPL PROGRAM TERMINATION  ====================
+
+****  A 'debug' instruction was encountered  *****
+About to execute RETURN statement                 ***Invalid FP***
+
+> t
+
+The KPL program has terminated; you may not continue!
+
+****  A 'debug' instruction was encountered  *****
+About to execute RETURN statement                 ***Invalid FP***
+
+> t
+
+The KPL program has terminated; you may not continue!
+
+****  A 'debug' instruction was encountered  *****
+About to execute RETURN statement                 ***Invalid FP***
+
+> t
+
+The KPL program has terminated; you may not continue!
+
+****  A 'debug' instruction was encountered  *****
+About to execute RETURN statement                 ***Invalid FP***
+
+> format
+================================================================================
+This command is used to create or modify a file to be used by the BLITZ emulator
+for the disk.  By default, this file will be called "DISK".  The filename may
+be specified on the emulator command line with the "-d filename" option.  This
+command will create the file if it does not exist.  It will set the file to the
+desired size and initialize all newly allocated space.
+
+The size of the disk file is an integral number of tracks.  Each track will
+contain 16 sectors.  The size of each sector is the same as the page size.
+Thus, the sector size is 8192 bytes.  The actual file size will be the number
+tracks times the number of sectors per track times the sector size, plus an
+additional 4 bytes, which will contain a "magic number".  The magic number
+is 0x424C5A64 (decimal: 1112300132, ASCII: "BLZd") and is used to identify this
+file as a BLITZ disk file.
+
+Initialization consists of writing the magic number in the first 4 bytes of the
+file and adjusting the file length.  Any data previously stored in the file will
+be preserved and any additional sectors created will be initialized.
+================================================================================
+
+The name of the disk file is "DISK".
+The file "DISK" did not previously exist.  (It could not be opened for reading.)
+Enter the number of tracks (e.g., 1000; type 0 to abort):
+0
+Aborting; file not changed!
+Error in DISK File: File "DISK" could not be opened for updating.  Simulated disk I/O has been disabled!
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1998
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1998
+[36mlocle[m@[32mLOCs-MacBook-Pro:[33;1m~/Dropbox/PSU/Spring2014/CS333/hw/hw1/p1[m$ 
