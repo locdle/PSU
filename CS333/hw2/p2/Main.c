@@ -312,10 +312,12 @@ code Main
     thArray: array [8] of Thread = new array of Thread { 8 of new Thread }
     semEmpty: Semaphore = new Semaphore
     semFull: Semaphore = new Semaphore
+    semMutex: Semaphore = new Semaphore
 
   function ProducerConsumer ()
       semEmpty.Init(BUFFER_SIZE)
       semFull.Init(0)
+      semMutex.Init(1)
 
       print ("     ")
 
@@ -353,6 +355,7 @@ code Main
       for i = 1 to 5
         -- Perform synchroniztion...
         semEmpty.Down()
+        semMutex.Down()
 
         -- Add c to the buffer
         buffer [bufferNextIn] = c
@@ -363,6 +366,7 @@ code Main
         PrintBuffer (c)
 
         -- Perform synchronization...
+        semMutex.Up()
         semFull.Up()
 
       endFor
@@ -374,6 +378,7 @@ code Main
       while true
         -- Perform synchroniztion...
         semFull.Down()
+        semMutex.Down()
 
         -- Remove next character from the buffer
         c = buffer [bufferNextOut]
@@ -384,6 +389,7 @@ code Main
         PrintBuffer (c)
 
         -- Perform synchronization...
+        semMutex.Up()
         semEmpty.Up()
 
       endWhile
