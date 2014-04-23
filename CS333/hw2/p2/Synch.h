@@ -15,7 +15,9 @@ header Synch
 
   class Mutex
     superclass Object
+    -- add some fields for mutex
     fields 
+    -- 1 is lock and 0 is Unlock
       state: int
       waitCount: int
       heldBy: ptr to Thread

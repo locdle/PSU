@@ -2,7 +2,7 @@ code Main
 
   -- OS Class: Project 2
   --
-  -- <PUT YOUR NAME HERE>
+  -- <Loc Le>
   --
   -- This package contains the following:
   --     SimpleThreadExample
@@ -22,11 +22,11 @@ code Main
 
       -----  Uncomment any one of the following to perform the desired test  -----
 
-      --SimpleThreadExample ()
+      -- SimpleThreadExample ()
       -- MoreThreadExamples ()
       -- TestMutex ()
-       ProducerConsumer ()
-      -- DiningPhilosophers ()
+      -- ProducerConsumer ()
+      DiningPhilosophers ()
 
       ThreadFinish ()
 
@@ -310,14 +310,15 @@ code Main
     bufferNextIn: int = 0
     bufferNextOut: int = 0
     thArray: array [8] of Thread = new array of Thread { 8 of new Thread }
-    semEmpty: Semaphore = new Semaphore
-    semFull: Semaphore = new Semaphore
-    semMutex: Semaphore = new Semaphore
+    semaphoreIsEmpty: Semaphore = new Semaphore
+    semaphoreIsFull: Semaphore = new Semaphore
+    mutex: Mutex = new Mutex
 
   function ProducerConsumer ()
-      semEmpty.Init(BUFFER_SIZE)
-      semFull.Init(0)
-      semMutex.Init(1)
+      --Initialize semaphore and mutex variable
+      semaphoreIsEmpty.Init(BUFFER_SIZE)
+      semaphoreIsFull.Init(0)
+      mutex.Init()
 
       print ("     ")
 
@@ -354,8 +355,8 @@ code Main
         c: char = intToChar ('A' + myId - 1)
       for i = 1 to 5
         -- Perform synchroniztion...
-        semEmpty.Down()
-        semMutex.Down()
+        semaphoreIsEmpty.Down() -- decrease semaphore count
+        mutex.Lock() -- avoid 2 producers worls concurrently
 
         -- Add c to the buffer
         buffer [bufferNextIn] = c
@@ -366,8 +367,8 @@ code Main
         PrintBuffer (c)
 
         -- Perform synchronization...
-        semMutex.Up()
-        semFull.Up()
+        mutex.Unlock() -- release the mutex
+        semaphoreIsFull.Up() -- increase semaphore count
 
       endFor
     endFunction
@@ -377,8 +378,8 @@ code Main
         c: char
       while true
         -- Perform synchroniztion...
-        semFull.Down()
-        semMutex.Down()
+        semaphoreIsFull.Down() -- decrease semaphore count
+        mutex.Lock() --
 
         -- Remove next character from the buffer
         c = buffer [bufferNextOut]
@@ -389,8 +390,8 @@ code Main
         PrintBuffer (c)
 
         -- Perform synchronization...
-        semMutex.Up()
-        semEmpty.Up()
+        mutex.Unlock() -- 
+        semaphoreIsEmpty.Up() -- increase semaphore count
 
       endWhile
     endFunction
@@ -425,7 +426,6 @@ code Main
         printChar (' ')
       endFor
     endFunction
-
 
 
 -----------------------------  Dining Philosophers  ---------------------------------
@@ -514,8 +514,11 @@ code Main
     superclass Object
     fields
       status: array [5] of int             -- For each philosopher: HUNGRY, EATING, or THINKING
+      BeginEating: array [5] of Condition
+      mutex2: Mutex
     methods
       Init ()
+      Test(p: int)
       PickupForks (p: int)
       PutDownForks (p: int)
       PrintAllStatus ()
@@ -524,19 +527,67 @@ code Main
   behavior ForkMonitor
 
     method Init ()
-      -- Initialize so that all philosophers are THINKING.
-      -- ...unimplemented...
-      endMethod
+      var
+        i: int
+      -- Create the arrays and objects
+      status = new array of int {5 of 0}
+      BeginEating = new array of Condition {5 of new Condition}
+      mutex2 = new Mutex
+      mutex2.Init()
+
+      -- Do a for loop to intialize the two arrays
+      for i = 0 to 4
+        status[i] = THINKING  -- Initialize so that all philosophers are THINKING.
+        BeginEating[i].Init() -- Initialize the array of conditions
+      endFor
+    endMethod
+
+    method Test (p: int)
+      var
+        LEFT: int
+        RIGHT: int
+      LEFT = (p-1) % 5
+      RIGHT = (p +1) % 5
+
+      -- Test to see if the philosopher is hungry, and if both of the neighbors 
+      -- are not eating (Begin eating if all are true)
+      if ((status[p] == HUNGRY) && (status[LEFT] != EATING) && (status[RIGHT] != EATING))
+        status[p] = EATING    -- Allow the philosopher to begin eating
+        mon.PrintAllStatus()
+        BeginEating[p].Signal(&mutex2) -- Signal to begin eating
+      endIf
+    endMethod
 
     method PickupForks (p: int)
-      -- This method is called when philosopher 'p' is wants to eat.
-      -- ...unimplemented...
-      endMethod
+      mutex2.Lock() -- Lock the mutex
+      status[p] = HUNGRY -- Set the philosopher status to hungry
+      mon.PrintAllStatus()
+      mon.Test(p) -- Do a test to see if the philosopher will be able to start eating
+      
+      -- If the status is not set to EATING, that means that it must wait
+      if status[p] != EATING
+        BeginEating[p].Wait(&mutex2) -- You must wait before you can start eating
+      endIf
+      mutex2.Unlock() -- Unlock the mutex
+    endMethod
 
-    method PutDownForks (p: int)
-      -- This method is called when the philosopher 'p' is done eating.
-      -- ...unimplemented...
-      endMethod
+    method PutDownForks(p: int)
+      var
+        LEFT: int
+        RIGHT: int
+      LEFT = (p-1) % 5
+      RIGHT = (p +1) % 5
+
+      mutex2.Lock()  -- Lock the mutex
+      status[p] = THINKING -- Set the philosopher status back to thinking
+      mon.PrintAllStatus()
+
+      -- Do a test for both left and right
+      mon.Test(LEFT)
+      mon.Test(RIGHT)
+
+      mutex2.Unlock()  -- Unlock the mutex
+    endMethod
 
     method PrintAllStatus ()
       -- Print a single line showing the status of all philosophers.
