@@ -1,12 +1,10 @@
  class MainForSum {
      public static void main(String[] args) {
          Stmt s = new Seq(new Assign("out", new Int(0)),
-                    new For("i", new Var("list"),
-                            new Assign("out", new Plus(new Var("out"), new Var("i")))));
+                    new Seq(new For("i", new Var("list"),
+                            new Seq(new Assign("i", new Plus(new Var("i"), new Int(1))),
+                                    new Print(new Var("out")))), new Print(new Var("out"))));
 
-
-                         /*new Seq(new Assign("out",
-                                 new Plus(new Var("out"), new Var("i"))))), );*/
 
          Stmt s1 = new Seq(new VarDecl("l", new Cons(new Int(1),
                  new Cons(new Int(2),

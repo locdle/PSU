@@ -22,7 +22,7 @@ class MainMap {
 
 
         Proc[] procs = new Proc[]{
-                new Proc("map", new Formal[]{new ByRef("f"), new Formal("list"), new ByRef("out")},s),
+                new Proc("map", new Formal[]{new Formal("f"), new Formal("list"), new ByRef("out")},s),
         };
 
         Program prog = new Program(procs, s1);

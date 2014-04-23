@@ -375,7 +375,7 @@ class For extends Stmt {
         // get tail of the list so can reuse it as the next list
         LValue l = list.eval(env).asList();
         while (l instanceof NonEmptyList) {
-            Env first = new ValEnv("h", l.getHead(), env);
+            Env first = new ValEnv(v, l.getHead(), env);
             body.exec(prog, first);
             l = l.getTail();
         }
@@ -426,17 +426,17 @@ abstract class Value {
       return null; // Not reached
     }
     LValue asList(){
-        System.out.println("ABORT: Non list value expected");
+        System.out.println("ABORT: list value expected");
         System.exit(1);
         return null; //
     }
     Value getHead(){
-        System.out.println("ABORT: head expected");
+        System.out.println("ABORT: nonempty list value expected");
         System.exit(1);
         return null; //
      }
     LValue getTail(){
-        System.out.println("ABORT: tail expected");
+        System.out.println("ABORT: nonempty list value expected");
         System.exit(1);
         return null; //
     }
