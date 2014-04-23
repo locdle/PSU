@@ -95,7 +95,7 @@ code Synch
       ----------  Mutex . Init  ----------
 
       method Init ()
-          --FatalError ("Unimplemented method")
+          -- initialized variables in fields
           state = 0
           waitCount = 0
           heldBy = null
@@ -105,23 +105,22 @@ code Synch
       ----------  Mutex . Lock  ----------
 
       method Lock ()
-          --FatalError ("Unimplemented method")
           var oldIntStat: int
-
           oldIntStat = SetInterruptsTo (DISABLED)
 
           while state == 1 --locked
-            waitingThreads.AddToEnd (currentThread)
-            waitCount = waitCount + 1
+            -- add the threads to the end of LLL of current thread
+            waitingThreads.AddToEnd (currentThread) 
+            waitCount = waitCount + 1 -- update the number threads waiting 
             currentThread.Sleep ()
           endWhile
 
           if heldBy != null
-            FatalError ("Error")
+            FatalError ("this thread already lock by current thread")
           endIf  
 
-          state = 1
-          heldBy = currentThread
+          state = 1 -- set this thread to lock
+          heldBy = currentThread -- and hold by current thread
 
           oldIntStat = SetInterruptsTo (ENABLED)
 
@@ -130,7 +129,6 @@ code Synch
       ----------  Mutex . Unlock  ----------
 
       method Unlock ()
-          --FatalError ("Unimplemented method")
            var
             oldIntStat: int
             nextThread: ptr to Thread
@@ -138,16 +136,17 @@ code Synch
           oldIntStat = SetInterruptsTo (DISABLED)
 
           if state == 0 -- unlock
-            FatalError ("asked for lock to be released, but nothing was locked!")
+            FatalError ("thread already unlock")
           endIf
 
           if heldBy != currentThread
-            FatalError ("thread was not locked by currentThread.")
+            FatalError ("thread was locked by the other thread.")
           endIf
 
           state = 0 -- unlock
-          heldBy = null
+          heldBy = null 
 
+          -- decrease the queue list, move it to ready  
           while waitCount > 0
             waitCount = waitCount - 1
             nextThread = waitingThreads.Remove()
@@ -155,14 +154,13 @@ code Synch
             readyList.AddToEnd (nextThread)
           endWhile
 
-          oldIntStat = SetInterruptsTo (ENABLED) --(oldIntStat)
+          oldIntStat = SetInterruptsTo (oldIntStat)
 
         endMethod
 
       ----------  Mutex . IsHeldByCurrentThread  ----------
 
       method IsHeldByCurrentThread () returns bool
-          --FatalError ("Unimplemented method")
           if (heldBy == currentThread)
             return true
           else
