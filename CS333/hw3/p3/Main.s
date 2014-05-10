@@ -18901,9 +18901,9 @@ _Label_627:
 	call	_P_Thread_InitializeScheduler
 ! CALL STATEMENT...
 !   Call the function
-	mov	18,r13		! source line 18
+	mov	17,r13		! source line 17
 	mov	"\0\0CA",r10
-	call	_function_53_GamblingParlor
+	call	_function_55_SleepingBarber
 ! CALL STATEMENT...
 !   Call the function
 	mov	20,r13		! source line 20

@@ -148,6 +148,80 @@ public class IR {
     Object visit(CJump c) throws IRException;
     Object visit(Jump c) throws IRException;
     Object visit(LabelDec c) throws IRException;
+    Object visit(Print c) throws IRException;
+    Object visit(PrintStr c) throws IRException;
+    Object visit(PrintInt c) throws IRException;
+    Object visit(PrintBool c) throws IRException;
+    Object visit(Malloc c) throws IRException;
+  }
+
+  public static class Print extends Inst {
+    public final Src arg;
+
+    public Print() { arg=null; }
+    public Print(Src a) { arg=a; }
+
+    public String toString() {
+        return " print (" + ((arg==null) ? "" : arg) + ")\n";
+    }
+    public Object accept(InstVisitor v) throws IRException {
+        return v.visit(this);
+    }
+  }
+  public static class PrintStr extends Inst {
+    public final String s;
+
+    public PrintStr() { s=null; }
+    public PrintStr(String v) { s=v; }
+
+    public String toString() {
+        return " print (" + ((s==null) ? "" : s) + ")\n";
+    }
+    public Object accept(InstVisitor v) throws IRException {
+        return v.visit(this);
+    }
+  }
+
+  public static class PrintInt extends Inst {
+    public final int i;
+
+    public PrintInt() { i = -1; }
+    public PrintInt(int x) { i = x; }
+
+    public String toString() {
+        return " print (" + ((i==-1) ? "" : i) + ")\n";
+    }
+    public Object accept(InstVisitor v) throws IRException {
+        return v.visit(this);
+    }
+  }
+
+  public static class PrintBool extends Inst {
+    public final Boolean b;
+
+    public PrintBool() { b=null; }
+    public PrintBool(Boolean a) { b=a; }
+
+    public String toString() {
+        return " print (" + ((b==null) ? "" : b) + ")\n";
+    }
+    public Object accept(InstVisitor v) throws IRException {
+        return v.visit(this);
+    }
+  }
+
+  public static class Malloc extends Inst {
+    public final Dest rdst;
+    public final Src arg;
+
+    public Malloc(Dest r, Src a) { rdst=r; arg=a; }
+
+    public String toString() {
+            return " " + rdst +  " = malloc (" + arg + ")\n";
+        }
+    public Object accept(InstVisitor v) throws IRException {
+          return v.visit(this);
+      }
   }
 
   public static class Binop extends Inst {

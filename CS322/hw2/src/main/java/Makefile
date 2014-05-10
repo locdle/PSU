@@ -16,6 +16,7 @@ ir:	ir/IR.class
 
 irgen: 	astpsr ir IRGen.class
 
+
 all:	irgen
 
 clean:

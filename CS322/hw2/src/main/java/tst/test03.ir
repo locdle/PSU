@@ -1,0 +1,9 @@
+# IR Program
+
+_main ()
+(b, i)
+{
+Begin:
+ return 
+End:
+}

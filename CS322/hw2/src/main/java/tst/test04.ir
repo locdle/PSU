@@ -1,0 +1,11 @@
+# IR Program
+
+_main ()
+(i, j)
+{
+Begin:
+ i = 2
+ j = t1
+ return 
+End:
+}

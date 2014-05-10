@@ -14,8 +14,8 @@ code Main
 
       -----  Uncomment any one of the following to perform the desired test  -----
 
-       -- SleepingBarber ()
-        GamblingParlor()
+        SleepingBarber ()
+       -- GamblingParlor()
 
       ThreadFinish ()
     endFunction
