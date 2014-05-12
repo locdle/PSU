@@ -1,0 +1,16 @@
+offset is 8
+offset is 8
+# IR Program
+
+data _class_A (sz=0): 
+
+_main ()
+(a)
+{
+Begin:
+ t1 = call _malloc(12)
+ a = t1
+ 8[a]:P = 10
+ return 
+End:
+}

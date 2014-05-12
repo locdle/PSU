@@ -4,8 +4,9 @@ _main ()
 (flag)
 {
 Begin:
+ flag = true
 L0:
- if t1 == false goto L1
+ if flag == false goto L1
  flag = false
  goto L0
 L1:

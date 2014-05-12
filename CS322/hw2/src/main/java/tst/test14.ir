@@ -1,0 +1,16 @@
+# IR Program
+
+data _class_A (sz=0): 
+data _class_B (sz=0): 
+
+_main ()
+(b)
+{
+Begin:
+ t1 = call _malloc(16)
+ b = t1
+ [b]:P = 10
+ [b]:P = 20
+ return 
+End:
+}

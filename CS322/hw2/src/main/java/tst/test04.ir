@@ -5,7 +5,8 @@ _main ()
 {
 Begin:
  i = 2
- j = t1
+ j = i
+ call _printInt(j)
  return 
 End:
 }
