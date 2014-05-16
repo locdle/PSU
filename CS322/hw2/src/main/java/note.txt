@@ -1,6 +1,1 @@
-
-1)In ClassInfo, how to compute the offset
-2)In IR Func, how to Add "obj" into the params list as the 0th item
-              how to Create an Env() containing all params and all local vars
-3) In VarDecl, how to assign result to var
-
+in handle call how to  With type info in the returning CodePack, figure out obj's base class
