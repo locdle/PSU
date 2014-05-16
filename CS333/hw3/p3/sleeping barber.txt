@@ -1,0 +1,65 @@
+Beginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Thread-based Programs Starts...
+Initializing Thread Scheduler...
+       Barber         1     2     3     4     5     6     7     8     9     10
+-----                 E
+x----                 S
+x----                       E
+xx---                       S
+xx---                             E
+xxx--                             S
+xx---  start
+xx---                       B
+xx---                       F
+xx---  end
+xx---                                   E
+xxx--                                   S
+xxx--                                         E
+xxxx-                                         S
+xxxx-                                               E
+xxxxx                                               S
+xxxxx                                                     E
+xxxxx                                                     L
+xxxxx                                                           E
+xxxxx                                                           L
+xxxxx                                                                 E
+xxxxx                                                                 L
+xxxxx                                                                       E
+xxxxx                                                                       L
+xxxx-  start
+xxxx-                             B
+xxxx-                             F
+xxxx-  end
+xxxx-                       L
+xxx--  start
+xxx--                                   B
+xxx--                                   F
+xxx--  end
+xx---  start
+xx---                                         B
+xx---                                         F
+xx---  end
+x----  start
+x----                 B
+x----                 F
+x----  end
+-----  start
+-----                                               B
+-----                                               F
+-----  end
+-----                             L
+-----                                   L
+-----                                         L
+-----                 L
+-----                                               L
+
+*****  A 'wait' instruction was executed and no more interrupts are scheduled... halting emulation!  *****
+
+Done!  The next instruction to execute will be:
+000EC8: 09000000       ret
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1399952
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1399952
