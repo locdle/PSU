@@ -688,30 +688,30 @@ code Kernel
       method Init ()
         var
           i: int
-        --
+        
         -- This method is called once at kernel startup time to initialize
         -- the one and only "ThreadManager" object.
-        -- 
+         
         print ("Initializing Thread Manager...\n")
-          -- NOT IMPLEMENTED        
+              
         --Initialize variables
         threadTable = new array of Thread {MAX_NUMBER_OF_PROCESSES of new Thread}
-        threadTable[0].Init("Thread 1")
-        threadTable[1].Init("Thread 2")
-        threadTable[2].Init("Thread 3")
-        threadTable[3].Init("Thread 4")
-        threadTable[4].Init("Thread 5")
-        threadTable[5].Init("Thread 6")
-        threadTable[6].Init("Thread 7")
-        threadTable[7].Init("Thread 8")
-        threadTable[8].Init("Thread 9")
-        threadTable[9].Init("Thread 10")
+        threadTable[0].Init("Thread 0")
+        threadTable[1].Init("Thread 1")
+        threadTable[2].Init("Thread 2")
+        threadTable[3].Init("Thread 3")
+        threadTable[4].Init("Thread 4")
+        threadTable[5].Init("Thread 5")
+        threadTable[6].Init("Thread 6")
+        threadTable[7].Init("Thread 7")
+        threadTable[8].Init("Thread 8")
+        threadTable[9].Init("Thread 9")
           
         --Add Thread to free list and set status to unused 
         freeList = new List [Thread]
         for i = 0 to MAX_NUMBER_OF_PROCESSES - 1
-          freeList.AddToEnd(&threadTable[i])
           threadTable[i].status = UNUSED
+          freeList.AddToEnd(&threadTable[i])          
         endFor
 
         threadManagerLock = new Mutex
@@ -719,8 +719,6 @@ code Kernel
 
         threadBecameFree = new Condition
         threadBecameFree.Init()
-
- 
         endMethod
 
       ----------  ThreadManager . Print  ----------
@@ -755,16 +753,22 @@ code Kernel
         -- This method returns a new Thread; it will wait
         -- until one is available.
         -- 
-          -- NOT IMPLEMENTED
-        threadManagerLock.Lock()  -- lock the mutex
-        if pointerToThread == null
+
+        threadManagerLock.Lock()  -- lock the mutex              
+        
+        while (freeList.IsEmpty()) -- free list is empty, you need to wait             
+          -- wait on condition of thread become free
           threadBecameFree.Wait(&threadManagerLock)
-          pointerToThread = freeList.Remove()
-          pointerToThread.status = JUST_CREATED
-        endIf
+          endWhile
+
+        -- has some thread in free list, can remove it from free list
+        pointerToThread = freeList.Remove()
+
+        -- create a new thread
+        pointerToThread.status = JUST_CREATED      
         threadManagerLock.Unlock() -- unlock the mutex
 
-          return pointerToThread
+        return pointerToThread
       endMethod
 
       ----------  ThreadManager . FreeThread  ----------
@@ -773,12 +777,11 @@ code Kernel
         -- 
         -- This method is passed a ptr to a Thread;  It moves it
         -- to the FREE list.
-        -- 
-          -- NOT IMPLEMENTED
+
         threadManagerLock.Lock() -- Lock the mutex
-        th.status = UNUSED
-        freeList.AddToEnd(th)
-        threadBecameFree.Signal(&threadManagerLock)
+        currentThread.status = UNUSED  -- change status back to unused
+        freeList.AddToEnd(th)  -- add this pointer to list of free thread
+        threadBecameFree.Signal(&threadManagerLock) -- wake up the latest thread and schedule to run
         threadManagerLock.Unlock() -- Unlock the mutex
         endMethod
 
@@ -863,12 +866,29 @@ code Kernel
       ----------  ProcessManager . Init  ----------
 
       method Init ()
+        var
+          i: int
         --
         -- This method is called once at kernel startup time to initialize
         -- the one and only "processManager" object.  
-        --
-        -- NOT IMPLEMENTED
-        endMethod
+        
+      freeList = new List [ProcessControlBlock]
+      processTable = new array of ProcessControlBlock {MAX_NUMBER_OF_PROCESSES of new ProcessControlBlock}
+      for i = 0 to MAX_NUMBER_OF_PROCESSES - 1
+        processTable[i].Init()
+        freeList.AddToEnd(&processTable[i])
+        processTable[i].status = FREE
+      endFor
+
+      processManagerLock = new Mutex
+      processManagerLock.Init()
+
+      aProcessBecameFree = new Condition
+      aProcessBecameFree.Init()
+      aProcessDied = new Condition
+      aProcessDied.Init()
+
+      endMethod
 
       ----------  ProcessManager . Print  ----------
 
@@ -918,13 +938,31 @@ code Kernel
       ----------  ProcessManager . GetANewProcess  ----------
 
       method GetANewProcess () returns ptr to ProcessControlBlock
+        var
+          pointerToProcessControlBlock : ptr to ProcessControlBlock
         --
         -- This method returns a new ProcessControlBlock; it will wait
         -- until one is available.
         --
-          -- NOT IMPLEMENTED
-          return null
-        endMethod
+        processManagerLock.Lock()  -- lock the mutex
+
+        while (freeList.IsEmpty()) -- free list is empty, you need to wait 
+            -- wait on condition of process become free
+          aProcessBecameFree.Wait(&processManagerLock) 
+        endWhile
+        
+        -- has some process in free list, can remove it from free list
+        pointerToProcessControlBlock = freeList.Remove()
+      
+        -- Increment nextPid number 
+        nextPid = nextPid + 1
+        -- get a new process assign a unit number for id
+        pointerToProcessControlBlock.pid = nextPid
+        pointerToProcessControlBlock.status = ACTIVE
+        processManagerLock.Unlock() -- unlock the mutex
+
+        return pointerToProcessControlBlock
+      endMethod
 
       ----------  ProcessManager . FreeProcess  ----------
 
@@ -932,9 +970,14 @@ code Kernel
         --
         -- This method is passed a ptr to a Process;  It moves it
         -- to the FREE list.
-        --
-          -- NOT IMPLEMENTED
-        endMethod
+
+        processManagerLock.Lock()
+        p.status = FREE
+        freeList.AddToEnd(p)
+        aProcessBecameFree.Signal(&processManagerLock)
+        processManagerLock.Unlock()
+
+      endMethod
 
 
     endBehavior
@@ -1041,13 +1084,68 @@ code Kernel
       ----------  FrameManager . GetNewFrames  ----------
 
       method GetNewFrames (aPageTable: ptr to AddrSpace, numFramesNeeded: int)
-          -- NOT IMPLEMENTED
-        endMethod
+        var
+          i: int
+          frameAddr: int
+          f: int
+    
+        frameManagerLock.Lock() -- Lock the mutex
+
+        -- Wait on newFramesAvailable until there are enough 
+        -- free frames to satisfy the request
+        while numberFreeFrames < numFramesNeeded
+          newFramesAvailable.Wait(&frameManagerLock)
+        endWhile
+
+        -- Loop through each of the frames, finding which frame is free
+        -- finding the adress of that frame and storing the address of
+        -- the frame
+        for i = 0 to numFramesNeeded - 1
+          f = framesInUse.FindZeroAndSet()
+          frameAddr = PHYSICAL_ADDRESS_OF_FIRST_PAGE_FRAME + (f * PAGE_SIZE)
+          aPageTable.SetFrameAddr(i, frameAddr)
+        endFor
+
+        -- Adjust number of free frames 
+        numberFreeFrames = numberFreeFrames - numFramesNeeded
+
+        -- set aPageTable.numberOfPages to the number of frames allocated
+        aPageTable.numberOfPages = aPageTable.numberOfPages + numFramesNeeded
+
+        -- Unlock the mutex
+        frameManagerLock.Unlock() 
+      endMethod
 
       ----------  FrameManager . ReturnAllFrames  ----------
 
       method ReturnAllFrames (aPageTable: ptr to AddrSpace)
-          -- NOT IMPLEMENTED
+        var
+          i: int
+          numFramesToReturn: int
+          frameAddr: int
+          bitNumber: int
+
+        -- Lock the mutex
+        frameManagerLock.Lock()
+
+        -- Get the number of frames to return
+        numFramesToReturn = aPageTable.numberOfPages
+
+        -- For each frame and frame address, calculate the bit number,
+        -- clear the bit, and adjust the number of free frames
+        for i = 0 to numFramesToReturn - 1
+          frameAddr = aPageTable.ExtractFrameAddr (i)
+          bitNumber = (frameAddr - PHYSICAL_ADDRESS_OF_FIRST_PAGE_FRAME) / PAGE_SIZE
+          framesInUse.ClearBit (bitNumber)
+          numberFreeFrames = numberFreeFrames + 1
+        endFor
+
+        -- Broadcast to the waiting threads so that more frames are available
+        newFramesAvailable.Broadcast(&frameManagerLock)
+        aPageTable.numberOfPages = aPageTable.numberOfPages - numFramesToReturn
+
+        -- Unlock the mutex
+        frameManagerLock.Unlock() 
         endMethod
 
     endBehavior
