@@ -1,0 +1,995 @@
+tst/test01:
+tst/test02:
+tst/test03:
+5,9c5,9
+< # t1	%rdx
+< # t2	%rcx
+< # t3	%rax
+< # t4	%rax
+< # b	%rbp
+---
+> # t1	%rax
+> # t2	%rdx
+> # t3	%rcx
+> # t4	%rcx
+> # b	%rbx
+12c12
+< # t7	%rbx
+---
+> # t7	%rbp
+15c15
+< # i	%rbx
+---
+> # i	%rbp
+27,28c27,28
+< 	setg %dl
+< 	movzbq %dl,%rdx
+---
+> 	setg %al
+> 	movzbq %al,%rax
+32,33c32,33
+< 	setl %cl
+< 	movzbq %cl,%rcx
+---
+> 	setl %dl
+> 	movzbq %dl,%rdx
+35,36c35,36
+< 	movq $0,%rax
+< 	notq %rax
+---
+> 	movq $0,%rcx
+> 	notq %rcx
+38,40c38,40
+< 	movq %rax,%r10
+< 	movq %rcx,%rax
+< 	andq %r10,%rax
+---
+> 	movq %rcx,%r10
+> 	movq %rdx,%rcx
+> 	andq %r10,%rcx
+42,44c42
+< 	movq %rax,%r10
+< 	movq %rdx,%rax
+< 	orq %r10,%rax
+---
+> 	orq %rcx,%rax
+46c44
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+51,52c49,50
+< 	movq $2,%rbx
+< 	addq %rax,%rbx
+---
+> 	movq $2,%rbp
+> 	addq %rax,%rbp
+60c58
+< 	movq %rbx,%rax
+---
+> 	movq %rbp,%rax
+63c61
+< 	movq %rax,%rbx
+---
+> 	movq %rax,%rbp
+65c63
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+68c66
+< 	movq %rbx,%rdi
+---
+> 	movq %rbp,%rdi
+tst/test04:
+tst/test05:
+tst/test06:
+tst/test07:
+tst/test08:
+tst/test09:
+tst/test10:
+tst/test11:
+tst/test12:
+tst/test13:
+tst/test14:
+tst/test15:
+tst/test16:
+tst/test17:
+tst/test18:
+83a84
+> # b	%rbp
+104d104
+< # b	%rbp
+tst/test19:
+87c87
+< # t2	%rdx
+---
+> # t2	%rax
+89,92c89,92
+< # t4	%rax
+< # t5	%rax
+< # t6	%rax
+< # t7	%rax
+---
+> # t4	%rdx
+> # t5	%rdx
+> # t6	%rdx
+> # t7	%rcx
+120,121c120,121
+< 	setl %dl
+< 	movzbq %dl,%rdx
+---
+> 	setl %al
+> 	movzbq %al,%rax
+128,129c128,129
+< 	movq $7,%rax
+< 	imulq $8,%rax
+---
+> 	movq $7,%rdx
+> 	imulq $8,%rdx
+131,133c131,133
+< 	movq %rax,%r10
+< 	movq $6,%rax
+< 	addq %r10,%rax
+---
+> 	movq %rdx,%r10
+> 	movq $6,%rdx
+> 	addq %r10,%rdx
+136,138c136,138
+< 	cmpq %rax,%r10
+< 	sete %al
+< 	movzbq %al,%rax
+---
+> 	cmpq %rdx,%r10
+> 	sete %dl
+> 	movzbq %dl,%rdx
+140,142c140
+< 	movq %rax,%r10
+< 	movq %rcx,%rax
+< 	andq %r10,%rax
+---
+> 	andq %rdx,%rcx
+144,145c142,144
+< 	movq %rdx,%rcx
+< 	orq %rax,%rcx
+---
+> 	movq %rcx,%r10
+> 	movq %rax,%rcx
+> 	orq %r10,%rcx
+tst/test20:
+tst/test21:
+12c12
+< # b	%r12
+---
+> # b	%rbx
+15,16c15,16
+< # j	%rbp
+< # i	%rbx
+---
+> # j	%r12
+> # i	%rbp
+38c38
+< 	movq $1,%r12
+---
+> 	movq $1,%rbx
+48c48
+< 	movq %rax,%rbx
+---
+> 	movq %rax,%rbp
+53c53
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%r12
+55c55
+< 	movq %r12,%rdi
+---
+> 	movq %rbx,%rdi
+58c58
+< 	movq %rbx,%rdi
+---
+> 	movq %rbp,%rdi
+61c61
+< 	movq %rbp,%rdi
+---
+> 	movq %r12,%rdi
+tst/test22:
+16,18c16,18
+< # a	%rbp
+< # j	%rbp
+< # i	%rbx
+---
+> # a	%rbx
+> # j	%rbx
+> # i	%rbp
+38d37
+< 	movq %rbx,%rbp
+40c39
+< 	movq (%rbp),%rax
+---
+> 	movq (%rbx),%rax
+44c43
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+48c47
+< 	movq %rax,%rbx
+---
+> 	movq %rax,%rbp
+50c49
+< 	movq (%rbp),%rax
+---
+> 	movq (%rbx),%rax
+54c53
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+58c57
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+60c59
+< 	movq %rbx,%rdi
+---
+> 	movq %rbp,%rdi
+63c62
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+tst/test23:
+tst/test24:
+12c12
+< # t2	%rbp
+---
+> # t2	%rbx
+15c15
+< # b	%rbp
+---
+> # b	%rbx
+18d17
+< # a	%rbx
+19a19
+> # a	%rbp
+21,22c21,22
+< # j	%rbp
+< # i	%rbx
+---
+> # j	%rbx
+> # i	%rbp
+41a42
+> 	movq %rbx,%rbp
+45c46
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+48c49
+< 	movq %r10,(%rbp)
+---
+> 	movq %r10,(%rbx)
+50c51
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+54c55
+< 	movq (%rbx),%rax
+---
+> 	movq (%rbp),%rax
+58c59
+< 	movq %rbx,%rdi
+---
+> 	movq %rbp,%rdi
+62c63
+< 	movq %rax,%rbx
+---
+> 	movq %rax,%rbp
+64c65
+< 	movq (%rbp),%rax
+---
+> 	movq (%rbx),%rax
+68c69
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+72c73
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+74c75
+< 	movq %rbx,%rdi
+---
+> 	movq %rbp,%rdi
+77c78
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+tst/test25:
+10c10
+< # t2	%rbp
+---
+> # t2	%rbx
+14,15c14,15
+< # y	%rbp
+< # x	%rbx
+---
+> # y	%rbx
+> # x	%rbp
+34a35
+> 	movq %rbx,%rbp
+38c39
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+41c42
+< 	movq %r10,(%rbp)
+---
+> 	movq %r10,(%rbx)
+43c44
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+47c48
+< 	movslq 8(%rbx),%rdi
+---
+> 	movslq 8(%rbp),%rdi
+51c52
+< 	movslq 8(%rbp),%rdi
+---
+> 	movslq 8(%rbx),%rdi
+55c56
+< 	movslq 12(%rbp),%rdi
+---
+> 	movslq 12(%rbx),%rdi
+tst/test26:
+tst/test27:
+tst/test28:
+tst/test29:
+tst/test30:
+tst/test31:
+14c14
+< # t2	%rbp
+---
+> # t2	%rbx
+17c17
+< # b	%rbp
+---
+> # b	%rbx
+20d19
+< # a	%rbx
+21a21
+> # a	%rbp
+23,24c23,24
+< # j	%rbp
+< # i	%rbx
+---
+> # j	%rbx
+> # i	%rbp
+43a44
+> 	movq %rbx,%rbp
+47c48
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+50c51
+< 	movq %r10,(%rbp)
+---
+> 	movq %r10,(%rbx)
+52c53
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+56c57
+< 	movq (%rbx),%rax
+---
+> 	movq (%rbp),%rax
+60c61
+< 	movq %rbx,%rdi
+---
+> 	movq %rbp,%rdi
+64c65
+< 	movq %rax,%rbx
+---
+> 	movq %rax,%rbp
+66c67
+< 	movq (%rbp),%rax
+---
+> 	movq (%rbx),%rax
+70c71
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+74c75
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+76c77
+< 	movq %rbx,%rdi
+---
+> 	movq %rbp,%rdi
+79c80
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+tst/test32:
+tst/test33:
+tst/test34:
+6,7c6,7
+< # t2	%rax
+< # t3	%rax
+---
+> # t2	%rcx
+> # t3	%rcx
+9,10c9,10
+< # t4	%rax
+< # t5	%rax
+---
+> # t4	%rcx
+> # t5	%rcx
+12c12
+< # a	%rdx
+---
+> # a	%rax
+15,16c15,16
+< # t9	%rax
+< # t10	%rax
+---
+> # t9	%rdx
+> # t10	%rdx
+20c20
+< # i	%rax
+---
+> # i	%rdx
+31d30
+< 	movq %rax,%rdx
+33,34c32,33
+< 	movq $0,%rax
+< 	imulq $4,%rax
+---
+> 	movq $0,%rcx
+> 	imulq $4,%rcx
+36,38c35,37
+< 	movq %rax,%r10
+< 	movq %rdx,%rax
+< 	addq %r10,%rax
+---
+> 	movq %rcx,%r10
+> 	movq %rax,%rcx
+> 	addq %r10,%rcx
+40c39
+< 	movl $2,(%rax)
+---
+> 	movl $2,(%rcx)
+42,43c41,42
+< 	movq $1,%rax
+< 	imulq $4,%rax
+---
+> 	movq $1,%rcx
+> 	imulq $4,%rcx
+45,47c44,46
+< 	movq %rax,%r10
+< 	movq %rdx,%rax
+< 	addq %r10,%rax
+---
+> 	movq %rcx,%r10
+> 	movq %rax,%rcx
+> 	addq %r10,%rcx
+49c48
+< 	movl $4,(%rax)
+---
+> 	movl $4,(%rcx)
+51c50
+< 	movq $0,%rax
+---
+> 	movq $0,%rdx
+53c52
+< 	movq %rax,%rcx
+---
+> 	movq %rdx,%rcx
+57c56
+< 	movq %rdx,%rcx
+---
+> 	movq %rax,%rcx
+62c61
+< 	addq $1,%rax
+---
+> 	addq $1,%rdx
+64c63
+< 	imulq $4,%rax
+---
+> 	imulq $4,%rdx
+66,68c65
+< 	movq %rax,%r10
+< 	movq %rdx,%rax
+< 	addq %r10,%rax
+---
+> 	addq %rdx,%rax
+tst/test35:
+tst/test36:
+tst/test37:
+tst/test38:
+10,13c10,14
+< # t3	%rcx
+< # cnt	%r12
+< # t4	%rax
+< # t5	%rax
+---
+> # t3	%rax
+> # t4	%rcx
+> # cnt	%rbp
+> # t5	%rcx
+> # numbers	%rbx
+15d15
+< # a	%rbp
+16a17
+> # a	%r12
+22d22
+< # numbers	%rbx
+42c42
+< 	movq %rbx,%rbp
+---
+> 	movq %rbx,%r12
+49c49
+< 	movq $0,%r12
+---
+> 	movq $0,%rbp
+53c53
+< 	cmpq $10,%r12
+---
+> 	cmpq $10,%rbp
+56,57c56,57
+< 	movq $10,%rcx
+< 	subq %r12,%rcx
+---
+> 	movq $10,%rax
+> 	subq %rbp,%rax
+59,60c59,60
+< 	movq %r12,%rax
+< 	imulq $4,%rax
+---
+> 	movq %rbp,%rcx
+> 	imulq $4,%rcx
+62,64c62,64
+< 	movq %rax,%r10
+< 	movq %rbx,%rax
+< 	addq %r10,%rax
+---
+> 	movq %rcx,%r10
+> 	movq %rbx,%rcx
+> 	addq %r10,%rcx
+66c66
+< 	movl %ecx,(%rax)
+---
+> 	movl %eax,(%rcx)
+68c68
+< 	movq %r12,%rax
+---
+> 	movq %rbp,%rax
+71c71
+< 	movq %rax,%r12
+---
+> 	movq %rax,%rbp
+77c77
+< 	movq (%rbp),%rax
+---
+> 	movq (%r12),%rax
+81c81
+< 	movq %rbp,%rdi
+---
+> 	movq %r12,%rdi
+83c83
+< 	movq %r12,%rdx
+---
+> 	movq %rbp,%rdx
+89c89
+< 	movq $0,%r12
+---
+> 	movq $0,%rbp
+93c93
+< 	cmpq $10,%r12
+---
+> 	cmpq $10,%rbp
+96c96
+< 	movq %r12,%rax
+---
+> 	movq %rbp,%rax
+107c107
+< 	movq %r12,%rax
+---
+> 	movq %rbp,%rax
+110c110
+< 	movq %rax,%r12
+---
+> 	movq %rax,%rbp
+152,154c152,153
+< # t2	%rsi
+< # t3	%rsi
+< # t4	%r8
+---
+> # t2	%rdi
+> # t3	%rdi
+156,159c155,159
+< # t5	%rsi
+< # A	%rdi
+< # t6	%rsi
+< # t7	%rsi
+---
+> # t4	%rdi
+> # A	%rsi
+> # t5	%r8
+> # t6	%r8
+> # t7	%r8
+164,166c164,169
+< # t12	%rsi
+< # t13	%rsi
+< # t14	%rsi
+---
+> # t12	%rdi
+> # j	%rdx
+> # t13	%rdi
+> # k	%rcx
+> # t14	%rdi
+> # i	%rax
+172,174d174
+< # j	%rdx
+< # k	%rcx
+< # i	%rax
+180d179
+< 	movq %rsi,%rdi
+202,203c201,202
+< 	movq %rdx,%rsi
+< 	imulq $4,%rsi
+---
+> 	movq %rdx,%rdi
+> 	imulq $4,%rdi
+205,207c204,206
+< 	movq %rsi,%r10
+< 	movq %rdi,%rsi
+< 	addq %r10,%rsi
+---
+> 	movq %rdi,%r10
+> 	movq %rsi,%rdi
+> 	addq %r10,%rdi
+209c208
+< 	movslq (%rsi),%r8
+---
+> 	movslq (%rdi),%rdi
+211,212c210,211
+< 	movq %rcx,%rsi
+< 	imulq $4,%rsi
+---
+> 	movq %rcx,%r8
+> 	imulq $4,%r8
+214,216c213,215
+< 	movq %rsi,%r10
+< 	movq %rdi,%rsi
+< 	addq %r10,%rsi
+---
+> 	movq %r8,%r10
+> 	movq %rsi,%r8
+> 	addq %r10,%r8
+218c217
+< 	movslq (%rsi),%rsi
+---
+> 	movslq (%r8),%r8
+220c219
+< 	cmpq %rsi,%r8
+---
+> 	cmpq %r8,%rdi
+241c240
+< 	movq %rdi,%rdx
+---
+> 	movq %rsi,%rdx
+247,248c246,247
+< 	movq %rax,%rsi
+< 	imulq $4,%rsi
+---
+> 	movq %rax,%rdi
+> 	imulq $4,%rdi
+250,252c249,251
+< 	movq %rsi,%r10
+< 	movq %rdi,%rsi
+< 	addq %r10,%rsi
+---
+> 	movq %rdi,%r10
+> 	movq %rsi,%rdi
+> 	addq %r10,%rdi
+254c253
+< 	movslq (%rsi),%rsi
+---
+> 	movslq (%rdi),%rdi
+259c258
+< 	movq %rdi,%rcx
+---
+> 	movq %rsi,%rcx
+262c261
+< 	movl %esi,(%rcx)
+---
+> 	movl %edi,(%rcx)
+268c267
+< 	movq %rdi,%rcx
+---
+> 	movq %rsi,%rcx
+tst/test39:
+12c12
+< # a	%rbp
+---
+> # a	%rbx
+15c15
+< # i	%rbx
+---
+> # i	%rbp
+28c28
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+30c30
+< 	movq $0,%rbx
+---
+> 	movq $0,%rbp
+36c36
+< 	movq %rbp,%rax
+---
+> 	movq %rbx,%rax
+45c45
+< 	movq %rbp,%rax
+---
+> 	movq %rbx,%rax
+52c52
+< 	cmpq $2,%rbx
+---
+> 	cmpq $2,%rbp
+55c55
+< 	movq %rbx,%rax
+---
+> 	movq %rbp,%rax
+59c59
+< 	movq %rbp,%rax
+---
+> 	movq %rbx,%rax
+66c66
+< 	movq %rbx,%rax
+---
+> 	movq %rbp,%rax
+69c69
+< 	movq %rax,%rbx
+---
+> 	movq %rax,%rbp
+tst/test40:
+tst/test41:
+8,9c8,9
+< # t2	%rcx
+< # t3	%rax
+---
+> # t2	%rax
+> # t3	%rcx
+11c11
+< # b	%rax
+---
+> # b	%rcx
+29c29
+< 	movq %rbx,%rax
+---
+> 	movq %rbx,%rcx
+31c31
+< 	movslq 8(%rax),%rcx
+---
+> 	movslq 8(%rcx),%rax
+33c33
+< 	movslq 12(%rax),%rax
+---
+> 	movslq 12(%rcx),%rcx
+35,36c35,36
+< 	movq %rcx,%rdi
+< 	addq %rax,%rdi
+---
+> 	movq %rax,%rdi
+> 	addq %rcx,%rdi
+tst/test42:
+8,9c8,9
+< # t2	%rcx
+< # t3	%rax
+---
+> # t2	%rax
+> # t3	%rcx
+11c11
+< # b	%rax
+---
+> # b	%rcx
+29c29
+< 	movq %rbx,%rax
+---
+> 	movq %rbx,%rcx
+31c31
+< 	movslq 8(%rax),%rcx
+---
+> 	movslq 8(%rcx),%rax
+33c33
+< 	movslq 12(%rax),%rax
+---
+> 	movslq 12(%rcx),%rcx
+35,36c35,36
+< 	movq %rcx,%rdi
+< 	addq %rax,%rdi
+---
+> 	movq %rax,%rdi
+> 	addq %rcx,%rdi
+tst/test43:
+8,9c8,9
+< # t2	%rcx
+< # t3	%rax
+---
+> # t2	%rax
+> # t3	%rcx
+11c11
+< # b	%rax
+---
+> # b	%rcx
+29c29
+< 	movq %rbx,%rax
+---
+> 	movq %rbx,%rcx
+31c31
+< 	movslq 8(%rax),%rcx
+---
+> 	movslq 8(%rcx),%rax
+33c33
+< 	movslq 12(%rax),%rax
+---
+> 	movslq 12(%rcx),%rcx
+35,36c35,36
+< 	movq %rcx,%rdi
+< 	addq %rax,%rdi
+---
+> 	movq %rax,%rdi
+> 	addq %rcx,%rdi
+tst/test44:
+8,9c8,9
+< # t2	%rcx
+< # t3	%rax
+---
+> # t2	%rax
+> # t3	%rcx
+11c11
+< # b	%rax
+---
+> # b	%rcx
+29c29
+< 	movq %rbx,%rax
+---
+> 	movq %rbx,%rcx
+31c31
+< 	movslq 8(%rax),%rcx
+---
+> 	movslq 8(%rcx),%rax
+33c33
+< 	movslq 12(%rax),%rax
+---
+> 	movslq 12(%rcx),%rcx
+35,36c35,36
+< 	movq %rcx,%rdi
+< 	addq %rax,%rdi
+---
+> 	movq %rax,%rdi
+> 	addq %rcx,%rdi
+tst/test45:
+tst/test46:
+14c14
+< # t2	%rbp
+---
+> # t2	%rbx
+17c17
+< # b	%rbp
+---
+> # b	%rbx
+20c20
+< # a	%rbx
+---
+> # a	%rbp
+39a40
+> 	movq %rbx,%rbp
+43c44
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+46c47
+< 	movq %r10,(%rbp)
+---
+> 	movq %r10,(%rbx)
+48c49
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+52c53
+< 	movq (%rbx),%rax
+---
+> 	movq (%rbp),%rax
+56c57
+< 	movq %rbx,%rdi
+---
+> 	movq %rbp,%rdi
+59c60
+< 	movl $10,8(%rbp)
+---
+> 	movl $10,8(%rbx)
+61c62
+< 	movl $11,12(%rbp)
+---
+> 	movl $11,12(%rbx)
+63c64
+< 	movq (%rbp),%rax
+---
+> 	movq (%rbx),%rax
+67c68
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+tst/test47:
+tst/test48:
+12,13c12,13
+< # t2	%rbp
+< # t3	%rbp
+---
+> # t2	%rbx
+> # t3	%rbx
+15c15
+< # b	%r12
+---
+> # b	%rbp
+17c17
+< # c	%rbp
+---
+> # c	%rbx
+20c20
+< # a	%rbx
+---
+> # a	%r12
+41a42
+> 	movq %rbx,%r12
+45c46
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+48c49
+< 	movq %r10,(%rbp)
+---
+> 	movq %r10,(%rbx)
+50c51
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+53c54
+< 	movq %rbp,%r12
+---
+> 	movq %rbx,%rbp
+57c58
+< 	movq %rax,%rbp
+---
+> 	movq %rax,%rbx
+60c61
+< 	movq %r10,(%rbp)
+---
+> 	movq %r10,(%rbx)
+62c63
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
+66c67
+< 	movq (%rbx),%rax
+---
+> 	movq (%r12),%rax
+70c71
+< 	movq %rbx,%rdi
+---
+> 	movq %r12,%rdi
+73c74
+< 	movq (%r12),%rax
+---
+> 	movq (%rbp),%rax
+77c78
+< 	movq %r12,%rdi
+---
+> 	movq %rbp,%rdi
+80c81
+< 	movq (%rbp),%rax
+---
+> 	movq (%rbx),%rax
+84c85
+< 	movq %rbp,%rdi
+---
+> 	movq %rbx,%rdi
